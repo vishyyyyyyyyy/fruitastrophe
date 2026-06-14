@@ -1,0 +1,177 @@
+[gd_scene format=3 uid="uid://daymber3vixcp"]
+
+[ext_resource type="Script" uid="uid://bgudcsittebm8" path="res://scripts/truckintro.gd" id="1_13wpu"]
+[ext_resource type="Texture2D" uid="uid://bj3gnap7alo" path="res://assets/sky.png" id="1_oeidh"]
+[ext_resource type="Texture2D" uid="uid://dpxj505ww0b7" path="res://assets/clouds.png" id="2_fxdho"]
+[ext_resource type="Texture2D" uid="uid://dtju7s60nmimf" path="res://assets/light.png" id="3_13wpu"]
+[ext_resource type="Texture2D" uid="uid://c0qq71f5cnv2p" path="res://assets/road.png" id="4_0vrx5"]
+[ext_resource type="Texture2D" uid="uid://b2mopk66jhm78" path="res://assets/sprite/truck.png" id="5_x7lop"]
+[ext_resource type="Texture2D" uid="uid://dxij6xrmxar2t" path="res://assets/sprite/truck (1).png" id="6_5kohr"]
+[ext_resource type="Texture2D" uid="uid://b6m1lkrdec67w" path="res://assets/sprite/truck (2).png" id="7_a4bnr"]
+[ext_resource type="Texture2D" uid="uid://bcjx42w1rb5an" path="res://assets/sprite/truck (3).png" id="8_5vwll"]
+[ext_resource type="Texture2D" uid="uid://bl7u4kp6qv7ph" path="res://assets/grass.png" id="9_jeaex"]
+[ext_resource type="Texture2D" uid="uid://dnofn4fcxoiv7" path="res://assets/store.png" id="10_fxdho"]
+[ext_resource type="Texture2D" uid="uid://dyeo4kqtxtgej" path="res://assets/doorshadow.png" id="11_13wpu"]
+[ext_resource type="Texture2D" uid="uid://1gh8iyjgggiw" path="res://assets/door.png" id="12_0vrx5"]
+
+[sub_resource type="Animation" id="Animation_d21ai"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_rj586"]
+resource_name = "truck"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0009999999, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-3260, 0), Vector2(2684, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4d7sh"]
+_data = {
+&"RESET": SubResource("Animation_d21ai"),
+&"truck": SubResource("Animation_rj586")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hqns4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_x7lop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5kohr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_a4bnr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5vwll")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="Animation" id="Animation_5kohr"]
+resource_name = "door"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(4362.0005, 500.19638), Vector2(4345.1255, 500.00003)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Door:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.001, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5794415, 0.5855334), Vector2(0.4193919, 0.5855334)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a4bnr"]
+_data = {
+&"door": SubResource("Animation_5kohr")
+}
+
+[node name="Node2D" type="Node2D" unique_id=2066549047]
+script = ExtResource("1_13wpu")
+
+[node name="bg" type="Parallax2D" parent="." unique_id=1089126203]
+scroll_scale = Vector2(0.2, 0.2)
+repeat_size = Vector2(1152, 0)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="bg" unique_id=1666614687]
+texture = ExtResource("1_oeidh")
+centered = false
+
+[node name="clouds" type="Parallax2D" parent="." unique_id=419598201]
+scroll_scale = Vector2(0.2, 0.2)
+repeat_size = Vector2(1152, 0)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="clouds" unique_id=1747358000]
+position = Vector2(72, 71)
+texture = ExtResource("2_fxdho")
+centered = false
+
+[node name="light" type="Parallax2D" parent="." unique_id=506593534]
+scroll_scale = Vector2(0.3, 0.3)
+repeat_size = Vector2(1152, 0)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="light" unique_id=1426250937]
+position = Vector2(1091, 150)
+texture = ExtResource("3_13wpu")
+centered = false
+
+[node name="road" type="Parallax2D" parent="." unique_id=1720749088]
+scroll_scale = Vector2(0.4, 0.4)
+repeat_size = Vector2(1152, 0)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="road" unique_id=1534334033]
+position = Vector2(0, 561)
+texture = ExtResource("4_0vrx5")
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=105338591]
+root_node = NodePath("../AnimatedSprite2D")
+libraries/ = SubResource("AnimationLibrary_4d7sh")
+autoplay = &"truck"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=168850829]
+position = Vector2(-3260, 0)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_hqns4")
+autoplay = "default"
+frame_progress = 0.3335721
+offset = Vector2(2000, 800)
+
+[node name="Camera2D" type="Camera2D" parent="AnimatedSprite2D" unique_id=1387560744]
+position = Vector2(1600.0001, 118.33333)
+anchor_mode = 0
+zoom = Vector2(1.15, 1.15)
+
+[node name="Grass" type="Sprite2D" parent="." unique_id=2135893312]
+position = Vector2(4487, 580)
+texture = ExtResource("9_jeaex")
+region_enabled = true
+region_rect = Rect2(0, -2.25, 779, 114.25)
+
+[node name="Storefront" type="Sprite2D" parent="." unique_id=2111278185]
+position = Vector2(4361.7354, 364.12497)
+scale = Vector2(0.5864993, 0.58649933)
+texture = ExtResource("10_fxdho")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=1384590053]
+root_node = NodePath("../AnimatedSprite2D")
+libraries/ = SubResource("AnimationLibrary_a4bnr")
+
+[node name="Door2" type="Sprite2D" parent="." unique_id=696473042]
+position = Vector2(4362.0005, 500.19632)
+scale = Vector2(0.5841101, 0.5855334)
+texture = ExtResource("11_13wpu")
+
+[node name="Door" type="Sprite2D" parent="." unique_id=159472032]
+position = Vector2(4362.0005, 500.1964)
+scale = Vector2(0.5794415, 0.5855334)
+texture = ExtResource("12_0vrx5")
