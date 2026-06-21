@@ -13,9 +13,29 @@
 [ext_resource type="Texture2D" uid="uid://dnofn4fcxoiv7" path="res://assets/store.png" id="10_fxdho"]
 [ext_resource type="Texture2D" uid="uid://dyeo4kqtxtgej" path="res://assets/doorshadow.png" id="11_13wpu"]
 [ext_resource type="Texture2D" uid="uid://1gh8iyjgggiw" path="res://assets/door.png" id="12_0vrx5"]
+[ext_resource type="Texture2D" uid="uid://cslxjfw7isll5" path="res://assets/sprite/apple.png" id="13_5kohr"]
+[ext_resource type="Texture2D" uid="uid://bwdjtot5t21u3" path="res://assets/box.png" id="14_0vrx5"]
+[ext_resource type="Texture2D" uid="uid://bvhlwrnl1t6ub" path="res://assets/storefront blood.png" id="16_jeaex"]
+[ext_resource type="Texture2D" uid="uid://b50xnip8f18in" path="res://assets/truck blood.png" id="17_ik7gp"]
+[ext_resource type="Texture2D" uid="uid://6apjk41kqwwr" path="res://assets/title blood.png" id="18_isn70"]
+[ext_resource type="FontFile" uid="uid://dcbtg57jm5lxm" path="res://assets/fonts/static/SourGummy-Bold.ttf" id="19_6t1n7"]
+[ext_resource type="Texture2D" uid="uid://ci42om6hy8a2s" path="res://assets/pinkbutton.png" id="20_isn70"]
+[ext_resource type="Texture2D" uid="uid://qua3cly5phdt" path="res://assets/greenbutton.png" id="21_6t1n7"]
 
 [sub_resource type="Animation" id="Animation_d21ai"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2652, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_rj586"]
 resource_name = "truck"
@@ -27,10 +47,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0009999999, 3.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.0009999999, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-3260, 0), Vector2(2684, 0)]
+"values": [Vector2(2652, 0), Vector2(-3260, 0), Vector2(2644, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4d7sh"]
@@ -59,8 +79,12 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="Animation" id="Animation_13wpu"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_5kohr"]
 resource_name = "door"
+length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -68,7 +92,7 @@ tracks/0/path = NodePath("../Door:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0.5, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(4362.0005, 500.19638), Vector2(4345.1255, 500.00003)]
@@ -80,55 +104,437 @@ tracks/1/path = NodePath("../Door:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.001, 1),
+"times": PackedFloat32Array(0.50100005, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0.5794415, 0.5855334), Vector2(0.4193919, 0.5855334)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1600.0001, 118.33333), Vector2(1600.0001, 118.33333)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera2D:zoom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.15, 1.15), Vector2(1.15, 1.15)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Apple:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.1666666, 1.4666667, 1.8666667, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(4349.0005, 519), Vector2(4387.0005, 518.00024), Vector2(4387.0005, 518.00024), Vector2(4349.0005, 519)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../TitleBlood:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.349, 1e-05), Vector2(1.3487394, 1.3487395)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../TitleBlood:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2, 2.32, 2.47, 2.5, 2.89),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(4080, 96), Vector2(4080.0002, 184), Vector2(4080.8909, 221.6094), Vector2(4080.0479, 230.37338), Vector2(4080.0005, 232.00002)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../TruckBlood:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../StorefrontBlood:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../TruckBlood:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(2, 2.2667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../StorefrontBlood:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(2, 2.2666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../title:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../title:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(2, 2.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../TitleBlood:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../Panel:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(2.6, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.14901961, 0.011764706, 0.023529412, 0), Color(0.14838442, 0.0130354045, 0.022809993, 0.6784314)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../PlayButton:scale")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(3, 3.2),
+"transitions": PackedFloat32Array(1, 3.2490091),
+"update": 0,
+"values": [Vector2(1e-05, 0.4), Vector2(0.4, 0.4)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("../LoadButton:scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(3.2, 3.4),
+"transitions": PackedFloat32Array(1, 3.2490098),
+"update": 0,
+"values": [Vector2(1e-05, 0.4), Vector2(0.4, 0.4)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("../SettingsButton:scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(3.4, 3.6),
+"transitions": PackedFloat32Array(1, 3.1383355),
+"update": 0,
+"values": [Vector2(1e-05, 0.4), Vector2(0.4, 0.4)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("../QuitButton:scale")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(3.6, 3.8),
+"transitions": PackedFloat32Array(1, 2.9281707),
+"update": 0,
+"values": [Vector2(1e-05, 0.4), Vector2(0.4, 0.4)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("../TitleBlood:modulate")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("../Panel:visible")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0, 2.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_0vrx5"]
+resource_name = "zoom cam"
+length = 4.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4345.1255, 500.00003)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Door:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.4193919, 0.5855334)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Panel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.14901961, 0.011764706, 0.023529412, 0.6784314), Color(0.14901961, 0.011764706, 0.023529412, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../TitleBlood:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../title:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../PlayButton:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../LoadButton:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../SettingsButton:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../SettingsButton/title2:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../QuitButton:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../Camera2D2:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.0166667, 1, 1.5333333, 1.8666667),
+"transitions": PackedFloat32Array(1, 1, 1.9318726, 1.5691684),
+"update": 0,
+"values": [Vector2(4113, 352), Vector2(4113, 352), Vector2(4376, 479), Vector2(4407, 482)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../Camera2D2:zoom")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.0166667, 1, 1.5333333, 1.8666667),
+"transitions": PackedFloat32Array(1, 1, 1.9318726, 2.4622889),
+"update": 0,
+"values": [Vector2(1.15, 1.15), Vector2(1.15, 1.15), Vector2(5, 5), Vector2(35, 35)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a4bnr"]
 _data = {
-&"door": SubResource("Animation_5kohr")
+&"RESET": SubResource("Animation_13wpu"),
+&"door": SubResource("Animation_5kohr"),
+&"zoom cam": SubResource("Animation_0vrx5")
 }
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_isn70"]
 
 [node name="Node2D" type="Node2D" unique_id=2066549047]
 script = ExtResource("1_13wpu")
 
-[node name="bg" type="Parallax2D" parent="." unique_id=1089126203]
+[node name="parralaxLayers" type="Node2D" parent="." unique_id=752488392]
+
+[node name="bg" type="Parallax2D" parent="parralaxLayers" unique_id=1089126203]
 scroll_scale = Vector2(0.2, 0.2)
 repeat_size = Vector2(1152, 0)
 repeat_times = 5
 
-[node name="Sprite2D" type="Sprite2D" parent="bg" unique_id=1666614687]
+[node name="Sprite2D" type="Sprite2D" parent="parralaxLayers/bg" unique_id=1666614687]
 texture = ExtResource("1_oeidh")
 centered = false
 
-[node name="clouds" type="Parallax2D" parent="." unique_id=419598201]
+[node name="clouds" type="Parallax2D" parent="parralaxLayers" unique_id=419598201]
 scroll_scale = Vector2(0.2, 0.2)
 repeat_size = Vector2(1152, 0)
 repeat_times = 5
 
-[node name="Sprite2D" type="Sprite2D" parent="clouds" unique_id=1747358000]
+[node name="Sprite2D" type="Sprite2D" parent="parralaxLayers/clouds" unique_id=1747358000]
 position = Vector2(72, 71)
 texture = ExtResource("2_fxdho")
 centered = false
 
-[node name="light" type="Parallax2D" parent="." unique_id=506593534]
+[node name="light" type="Parallax2D" parent="parralaxLayers" unique_id=506593534]
 scroll_scale = Vector2(0.3, 0.3)
 repeat_size = Vector2(1152, 0)
 repeat_times = 5
 
-[node name="Sprite2D" type="Sprite2D" parent="light" unique_id=1426250937]
+[node name="Sprite2D" type="Sprite2D" parent="parralaxLayers/light" unique_id=1426250937]
 position = Vector2(1091, 150)
 texture = ExtResource("3_13wpu")
 centered = false
 
-[node name="road" type="Parallax2D" parent="." unique_id=1720749088]
+[node name="road" type="Parallax2D" parent="parralaxLayers" unique_id=1720749088]
 scroll_scale = Vector2(0.4, 0.4)
 repeat_size = Vector2(1152, 0)
 repeat_times = 5
 
-[node name="Sprite2D" type="Sprite2D" parent="road" unique_id=1534334033]
+[node name="Sprite2D" type="Sprite2D" parent="parralaxLayers/road" unique_id=1534334033]
 position = Vector2(0, 561)
 texture = ExtResource("4_0vrx5")
 centered = false
@@ -139,7 +545,7 @@ libraries/ = SubResource("AnimationLibrary_4d7sh")
 autoplay = &"truck"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=168850829]
-position = Vector2(-3260, 0)
+position = Vector2(2652, 0)
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_hqns4")
 autoplay = "default"
@@ -147,8 +553,15 @@ frame_progress = 0.3335721
 offset = Vector2(2000, 800)
 
 [node name="Camera2D" type="Camera2D" parent="AnimatedSprite2D" unique_id=1387560744]
+z_index = 3
 position = Vector2(1600.0001, 118.33333)
 anchor_mode = 0
+zoom = Vector2(1.15, 1.15)
+
+[node name="Camera2D2" type="Camera2D" parent="." unique_id=1229891416]
+z_index = 3
+position = Vector2(4113, 352)
+scale = Vector2(0.6, 0.6)
 zoom = Vector2(1.15, 1.15)
 
 [node name="Grass" type="Sprite2D" parent="." unique_id=2135893312]
@@ -171,7 +584,186 @@ position = Vector2(4362.0005, 500.19632)
 scale = Vector2(0.5841101, 0.5855334)
 texture = ExtResource("11_13wpu")
 
+[node name="Apple" type="Sprite2D" parent="." unique_id=556361847]
+position = Vector2(4349.0005, 519)
+rotation = 1.0409503
+scale = Vector2(0.49371067, 0.4937107)
+texture = ExtResource("13_5kohr")
+region_enabled = true
+region_rect = Rect2(0, 0, 159, 162.25)
+
 [node name="Door" type="Sprite2D" parent="." unique_id=159472032]
-position = Vector2(4362.0005, 500.1964)
+position = Vector2(4362.0005, 500.19638)
 scale = Vector2(0.5794415, 0.5855334)
 texture = ExtResource("12_0vrx5")
+
+[node name="Box" type="Sprite2D" parent="." unique_id=29659586]
+visible = false
+position = Vector2(4191, 552)
+rotation = -3.1415925
+scale = Vector2(0.5310881, 0.53108805)
+texture = ExtResource("14_0vrx5")
+
+[node name="StorefrontBlood" type="Sprite2D" parent="." unique_id=650793465]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(4360.14, 423.125)
+scale = Vector2(0.58302414, 0.5830241)
+texture = ExtResource("16_jeaex")
+flip_h = true
+
+[node name="TruckBlood" type="Sprite2D" parent="." unique_id=1435398644]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(3825.9998, 439)
+scale = Vector2(0.6124102, 0.6124102)
+texture = ExtResource("17_ik7gp")
+
+[node name="Panel" type="Panel" parent="." unique_id=1324420975]
+visible = false
+modulate = Color(0.14901961, 0.011764706, 0.023529412, 0)
+offset_left = 3593.0
+offset_top = 22.0
+offset_right = 4638.0
+offset_bottom = 658.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_isn70")
+
+[node name="TitleBlood" type="Sprite2D" parent="." unique_id=1547998829]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(4080, 96)
+scale = Vector2(1.349, 1e-05)
+texture = ExtResource("18_isn70")
+region_rect = Rect2(0, 0, 533, 3.625)
+
+[node name="title" type="Label" parent="." unique_id=924160127]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_left = 3774.0
+offset_top = 71.0
+offset_right = 4411.0
+offset_bottom = 201.0
+theme_override_colors/font_outline_color = Color(0.96862745, 0.5058824, 0.5058824, 1)
+theme_override_constants/outline_size = 31
+theme_override_fonts/font = ExtResource("19_6t1n7")
+theme_override_font_sizes/font_size = 88
+text = "FRUITASTROPHE "
+
+[node name="PlayButton" type="TextureButton" parent="." unique_id=1186135231]
+offset_left = 3961.0
+offset_top = 282.0
+offset_right = 4591.0
+offset_bottom = 451.0
+scale = Vector2(1e-05, 0.4)
+texture_normal = ExtResource("20_isn70")
+texture_hover = ExtResource("21_6t1n7")
+
+[node name="title2" type="Label" parent="PlayButton" unique_id=1907848987]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.5
+offset_top = -65.0
+offset_right = 107.5
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.96862745, 0.5058824, 0.5058824, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("19_6t1n7")
+theme_override_font_sizes/font_size = 100
+text = "PLAY"
+
+[node name="LoadButton" type="TextureButton" parent="." unique_id=296597565]
+offset_left = 3961.0
+offset_top = 370.0
+offset_right = 4591.0
+offset_bottom = 539.0
+scale = Vector2(1e-05, 0.4)
+texture_normal = ExtResource("20_isn70")
+texture_hover = ExtResource("21_6t1n7")
+
+[node name="title2" type="Label" parent="LoadButton" unique_id=1773700940]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.5
+offset_top = -65.0
+offset_right = 107.5
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.96862745, 0.5058824, 0.5058824, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("19_6t1n7")
+theme_override_font_sizes/font_size = 100
+text = "LOAD"
+
+[node name="SettingsButton" type="TextureButton" parent="." unique_id=152821284]
+offset_left = 3961.0
+offset_top = 458.0
+offset_right = 4591.0
+offset_bottom = 627.0
+scale = Vector2(1e-05, 0.4)
+tooltip_text = "
+"
+texture_normal = ExtResource("20_isn70")
+texture_hover = ExtResource("21_6t1n7")
+
+[node name="title2" type="Label" parent="SettingsButton" unique_id=1224437832]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.5
+offset_top = -65.0
+offset_right = 107.5
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.96862745, 0.5058824, 0.5058824, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("19_6t1n7")
+theme_override_font_sizes/font_size = 100
+text = "SETTINGS"
+
+[node name="QuitButton" type="TextureButton" parent="." unique_id=1503700426]
+offset_left = 3961.0
+offset_top = 546.00006
+offset_right = 4591.0
+offset_bottom = 715.00006
+scale = Vector2(1e-05, 0.4)
+texture_normal = ExtResource("20_isn70")
+texture_hover = ExtResource("21_6t1n7")
+
+[node name="title2" type="Label" parent="QuitButton" unique_id=690003124]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.5
+offset_top = -65.0
+offset_right = 107.5
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.96862745, 0.5058824, 0.5058824, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("19_6t1n7")
+theme_override_font_sizes/font_size = 100
+text = "QUIT"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="LoadButton" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
