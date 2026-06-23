@@ -38,8 +38,13 @@ func _on_quit_button_pressed() -> void:
 
 
 func _on_play_button_2_pressed() -> void:
-	pass # Replace with function body.
-
+	$SaveSlot3/CancelSave.visible=false
+	$SaveSlot3/SaveSlots.visible=false
+	$SaveSlot1/CancelSave.visible=false
+	$SaveSlot1/SaveSlots.visible=false
+	
+	$SaveSlot2/CancelSave.visible=true
+	$SaveSlot2/SaveSlots.visible=true
 
 func _on_save_slot_1_pressed() -> void:
 	pass # Replace with function body.

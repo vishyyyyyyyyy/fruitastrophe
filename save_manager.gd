@@ -5,8 +5,10 @@ const SAVE_FOLDER = "user://"
 var high_score = 0
 var coins = 0
 
-func _ready():
-	pass
+#func _ready():
+	##$SaveSlot1.set_meta("slot_id", 1)
+	##$SaveSlot2.set_meta("slot_id", 2)
+	##$SaveSlot3.set_meta("slot_id", 3)
 	
 func save_game(slot: int):
 	var path = SAVE_FOLDER + "save_%d.json" % slot
