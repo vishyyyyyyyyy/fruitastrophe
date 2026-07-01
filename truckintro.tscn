@@ -773,8 +773,8 @@ region_enabled = true
 region_rect = Rect2(0, 0, 159, 162.25)
 
 [node name="Door" type="Sprite2D" parent="." unique_id=159472032]
-position = Vector2(4345.1255, 500.00003)
-scale = Vector2(0.4193919, 0.5855334)
+position = Vector2(4362.0005, 500.19638)
+scale = Vector2(0.5794415, 0.5855334)
 texture = ExtResource("12_0vrx5")
 
 [node name="Box" type="Sprite2D" parent="." unique_id=29659586]
@@ -785,18 +785,23 @@ scale = Vector2(0.5310881, 0.53108805)
 texture = ExtResource("14_0vrx5")
 
 [node name="StorefrontBlood" type="Sprite2D" parent="." unique_id=650793465]
+visible = false
+modulate = Color(1, 1, 1, 0)
 position = Vector2(4360.14, 423.125)
 scale = Vector2(0.58302414, 0.5830241)
 texture = ExtResource("16_jeaex")
 flip_h = true
 
 [node name="TruckBlood" type="Sprite2D" parent="." unique_id=1435398644]
+visible = false
+modulate = Color(1, 1, 1, 0)
 position = Vector2(3825.9998, 439)
 scale = Vector2(0.6124102, 0.6124102)
 texture = ExtResource("17_ik7gp")
 
 [node name="Panel" type="Panel" parent="." unique_id=1324420975]
-modulate = Color(0.14901961, 0.011764706, 0.023529412, 0.79607844)
+visible = false
+modulate = Color(0.14901961, 0.011764706, 0.023529412, 0)
 offset_left = 3584.0
 offset_top = 14.0
 offset_right = 4629.0
@@ -804,12 +809,16 @@ offset_bottom = 650.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_isn70")
 
 [node name="TitleBlood" type="Sprite2D" parent="." unique_id=1547998829]
-position = Vector2(4080.0005, 232.00002)
-scale = Vector2(1.3487394, 1.3487395)
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(4080, 96)
+scale = Vector2(1.349, 1e-05)
 texture = ExtResource("18_isn70")
 region_rect = Rect2(0, 0, 533, 3.625)
 
 [node name="title" type="Label" parent="." unique_id=924160127]
+visible = false
+modulate = Color(1, 1, 1, 0)
 offset_left = 3774.0
 offset_top = 71.0
 offset_right = 4411.0
@@ -825,7 +834,7 @@ offset_left = 3961.0
 offset_top = 282.0
 offset_right = 4591.0015
 offset_bottom = 451.0
-scale = Vector2(0.4, 0.4)
+scale = Vector2(1e-05, 0.4)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.32156864, 0.27450982, 0.25882354, 1)
 theme_override_fonts/font = ExtResource("19_6t1n7")
@@ -855,7 +864,7 @@ offset_left = 3961.0
 offset_top = 458.0
 offset_right = 4590.999
 offset_bottom = 627.0
-scale = Vector2(0.4, 0.4)
+scale = Vector2(1e-05, 0.4)
 tooltip_text = "
 "
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -872,7 +881,7 @@ offset_left = 3961.0
 offset_top = 546.00006
 offset_right = 4591.005
 offset_bottom = 715.00006
-scale = Vector2(0.4, 0.4)
+scale = Vector2(1e-05, 0.4)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.32156864, 0.27450982, 0.25882354, 1)
 theme_override_fonts/font = ExtResource("19_6t1n7")
@@ -888,6 +897,7 @@ offset_top = 277.0
 offset_right = 4131.0
 offset_bottom = 511.0
 theme_override_styles/normal = ExtResource("22_uj6vo")
+theme_override_styles/pressed = ExtResource("22_6t1n7")
 theme_override_styles/hover = ExtResource("22_uj6vo")
 theme_override_styles/focus = ExtResource("22_6t1n7")
 toggle_mode = true
@@ -899,6 +909,8 @@ offset_left = 8.0
 offset_top = 14.0
 offset_right = 198.0
 offset_bottom = 145.0
+expand_mode = 1
+stretch_mode = 4
 
 [node name="Container" type="VBoxContainer" parent="SaveSlot1" unique_id=1329164230]
 layout_mode = 0
@@ -918,17 +930,17 @@ text = "Slot 1"
 layout_mode = 2
 theme_override_constants/separation = 25
 
-[node name="Label2" type="Label" parent="SaveSlot1/Container/Container2" unique_id=1472746627]
+[node name="Date" type="Label" parent="SaveSlot1/Container/Container2" unique_id=1472746627]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("19_6t1n7")
 theme_override_font_sizes/font_size = 20
-text = "6/21/2026"
+text = "xx/xx/xxxx"
 
-[node name="Label3" type="Label" parent="SaveSlot1/Container/Container2" unique_id=1452601466]
+[node name="Time" type="Label" parent="SaveSlot1/Container/Container2" unique_id=1452601466]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("19_6t1n7")
 theme_override_font_sizes/font_size = 20
-text = "4:30:00"
+text = "xx:xx"
 
 [node name="SaveSlot2" type="Button" parent="." unique_id=444598497]
 offset_left = 4156.0
@@ -937,6 +949,7 @@ offset_right = 4363.0
 offset_bottom = 511.0
 theme_override_styles/normal = ExtResource("22_uj6vo")
 theme_override_styles/pressed = ExtResource("22_6t1n7")
+theme_override_styles/hover = ExtResource("22_uj6vo")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_6t1n7")
 
@@ -946,6 +959,8 @@ offset_left = 8.0
 offset_top = 14.0
 offset_right = 198.0
 offset_bottom = 145.0
+expand_mode = 1
+stretch_mode = 4
 
 [node name="Container" type="VBoxContainer" parent="SaveSlot2" unique_id=1165069991]
 layout_mode = 0
@@ -959,23 +974,23 @@ theme_override_constants/separation = 5
 layout_mode = 2
 theme_override_fonts/font = ExtResource("19_6t1n7")
 theme_override_font_sizes/font_size = 30
-text = "Slot 1"
+text = "Slot 2"
 
 [node name="Container2" type="HBoxContainer" parent="SaveSlot2/Container" unique_id=1709415007]
 layout_mode = 2
 theme_override_constants/separation = 25
 
-[node name="Label2" type="Label" parent="SaveSlot2/Container/Container2" unique_id=1082515556]
+[node name="Date" type="Label" parent="SaveSlot2/Container/Container2" unique_id=1082515556]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("19_6t1n7")
 theme_override_font_sizes/font_size = 20
-text = "6/21/2026"
+text = "xx/xx/xxxx"
 
-[node name="Label3" type="Label" parent="SaveSlot2/Container/Container2" unique_id=1292620794]
+[node name="Time" type="Label" parent="SaveSlot2/Container/Container2" unique_id=1292620794]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("19_6t1n7")
 theme_override_font_sizes/font_size = 20
-text = "4:30:00"
+text = "xx:xx"
 
 [node name="SaveSlot3" type="Button" parent="." unique_id=570890839]
 offset_left = 4388.0
@@ -984,6 +999,7 @@ offset_right = 4595.0
 offset_bottom = 511.0
 theme_override_styles/normal = ExtResource("22_uj6vo")
 theme_override_styles/pressed = ExtResource("22_6t1n7")
+theme_override_styles/hover = ExtResource("22_uj6vo")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_6t1n7")
 
@@ -993,6 +1009,8 @@ offset_left = 8.0
 offset_top = 14.0
 offset_right = 198.0
 offset_bottom = 145.0
+expand_mode = 1
+stretch_mode = 4
 
 [node name="Container" type="VBoxContainer" parent="SaveSlot3" unique_id=125907004]
 layout_mode = 0
@@ -1006,23 +1024,23 @@ theme_override_constants/separation = 5
 layout_mode = 2
 theme_override_fonts/font = ExtResource("19_6t1n7")
 theme_override_font_sizes/font_size = 30
-text = "Slot 1"
+text = "Slot 3"
 
 [node name="Container2" type="HBoxContainer" parent="SaveSlot3/Container" unique_id=937037576]
 layout_mode = 2
 theme_override_constants/separation = 25
 
-[node name="Label2" type="Label" parent="SaveSlot3/Container/Container2" unique_id=581609862]
+[node name="Date" type="Label" parent="SaveSlot3/Container/Container2" unique_id=581609862]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("19_6t1n7")
 theme_override_font_sizes/font_size = 20
-text = "6/21/2026"
+text = "xx/xx/xxxx"
 
-[node name="Label3" type="Label" parent="SaveSlot3/Container/Container2" unique_id=1526713273]
+[node name="Time" type="Label" parent="SaveSlot3/Container/Container2" unique_id=1526713273]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("19_6t1n7")
 theme_override_font_sizes/font_size = 20
-text = "4:30:00"
+text = "xx:xx"
 
 [node name="CancelSave" type="Button" parent="." unique_id=1750989174]
 offset_left = 4041.0007
@@ -1061,3 +1079,4 @@ text = "SAVE"
 [connection signal="pressed" from="SaveSlot1" to="." method="_on_save_slot_1_pressed"]
 [connection signal="pressed" from="SaveSlot2" to="." method="_on_save_slot_2_pressed"]
 [connection signal="pressed" from="SaveSlot3" to="." method="_on_save_slot_3_pressed"]
+[connection signal="pressed" from="SaveSlots" to="." method="_on_save_slots_pressed"]

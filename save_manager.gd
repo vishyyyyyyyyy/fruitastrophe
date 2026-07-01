@@ -1,25 +1,20 @@
 extends Node
 
 const SAVE_FOLDER = "user://"
-
-var high_score = 0
-var coins = 0
-
-#func _ready():
-	##$SaveSlot1.set_meta("slot_id", 1)
-	##$SaveSlot2.set_meta("slot_id", 2)
-	##$SaveSlot3.set_meta("slot_id", 3)
 	
 func save_game(slot: int):
 	var path = SAVE_FOLDER + "save_%d.json" % slot
 
 	var data = {
-		"high_score": high_score,
-		"coins": coins
+		"saved_at": Time.get_datetime_string_from_system()
 	}
 
-	var file = FileAccess.open(path, FileAccess.WRITE)
+	var file = FileAccess.open(path, FileAccess.WRITE) # WRITE = overwrite
 	file.store_string(JSON.stringify(data))
+	file.close()
+
+	await RenderingServer.frame_post_draw
+	save_screenshot(slot)
 
 func load_game(slot: int):
 	var path = SAVE_FOLDER + "save_%d.json" % slot
@@ -30,11 +25,20 @@ func load_game(slot: int):
 	var file = FileAccess.open(path, FileAccess.READ)
 	var data = JSON.parse_string(file.get_as_text())
 
-	high_score = data["high_score"]
-	coins = data["coins"]
-
 	return true
 
+func get_save_data(slot: int):
+	var path = SAVE_FOLDER + "save_%d.json" % slot
+
+	if !FileAccess.file_exists(path):
+		return null
+
+	var file = FileAccess.open(path, FileAccess.READ)
+	var text = file.get_as_text()
+
+	print(text)
+
+	return JSON.parse_string(text)
 
 func save_screenshot(slot: int):
 	var image = get_viewport().get_texture().get_image()
